@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Verse from '../components/Verse.astro'
+import LeftHero from '../components/LeftHero.astro'
+
+const quote = {
+  text: `Just as our bodies have many parts and each part has a special function, so it is with Christ’s body. We are many parts of one body, and we all belong to each other.`,
+  reference: 'Romans 12:4-5 (NLT)',
+}
+---
+
+<BaseLayout>
+  <LeftHero heading="Our Ministries" >Each church runs a variety of programs engaging individuals, families, and our wider community. This page highlights a few ministries that work across all our churches, however feel free to enquire with your local church on all the programs available.</LeftHero>
+  <Verse text={quote.text} reference={quote.reference} />
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Verse from '../components/Verse.astro'
+import LeftImageHero from '../components/LeftImageHero.astro'
+import LargeCard from '../components/LargeCard.astro'
+import { ASSET_URL } from '../constants'
+
+const quote = {
+  text: `Just as our bodies have many parts and each part has a special function, so it is with Christ’s body. We are many parts of one body, and we all belong to each other.`,
+  reference: 'Romans 12:4-5 (NLT)',
+}
+const buttons = [
+  {
+    text: 'Greater Sydney Conference',
+    link: 'https://sydney.adventist.org.au/',
+    newtab: true,
+  },
+  {
+    text: 'Other GSC Churches',
+    link: 'https://sydney.adventist.org.au/locations/',
+    newtab: true,
+  },
+]
+---
+
+<BaseLayout>
+  <LeftImageHero heading="Our Churches" buttons={buttons}
+    >Catering for over 250 members, we have 4 local churches across the Illawarra which work together and with other churches and
+    organisations under the Greater Sydney Conference.</LeftImageHero
+  >
+  <div>
+    <LargeCard backgroundUrl={ASSET_URL('fb40c7fa-5e96-4745-82a6-b4f110804f2a.webp')} outerClass="" innerClass="text-white bg-charcoal bg-opacity-95">
+      <p class="text-4xl font-medium">Wollongong</>
+      <p>
+        Our largest church, multicultural and multigenerational, and passionate about reaching the great City of Wollongong with a message
+        of hope.
+      </p>
+    </LargeCard>
+  </div>
+  <Verse text={quote.text} reference={quote.reference} />
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  heading: string
+  image?: string
+}
+---
+
+<div class="grid grid-cols-2 gap-8 my-16 ml-12 mr-4">
+  <div class="flex flex-col justify-center items-end text-right">
+    <p class="heading-3 mb-4 text-center">{Astro.props.heading}</p>
+    <slot />
+  </div>
+  <div>
+    <img src={Astro.props.image} alt="" class="h-700px w-620px object-cover" />
+  </div>
+</div>

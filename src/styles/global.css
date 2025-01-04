@@ -1,0 +1,11 @@
+html {
+  font-family: "Noto Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+@font-face {
+  font-family: 'AdventSans';
+  src: url('/fonts/advent-sans-spd.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

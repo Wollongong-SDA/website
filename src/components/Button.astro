@@ -1,0 +1,30 @@
+---
+interface Props {
+  link?: string
+  external?: boolean
+  newtab?: boolean
+  class?: string
+}
+
+const external = Astro.props.link?.startsWith('http') || Astro.props.external
+---
+
+<a
+  class:list={[
+    'bg-charcoal',
+    'font-medium',
+    'text-xl',
+    'text-white',
+    'px-8',
+    'py-4',
+    'inline-block',
+    'transition',
+    'hover:bg-charcoal-faded',
+    Astro.props.class,
+  ]}
+  href={Astro.props.link}
+  target={Astro.props.newtab ? '_blank' : undefined}
+  rel={Astro.props.newtab ? 'noopener noreferrer' : undefined}>
+  <slot />
+  {external && <div class="i-mdi-link-variant inline-block ml-2" />}
+</a>

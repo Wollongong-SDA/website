@@ -1,0 +1,12 @@
+---
+interface Props {
+  text: string
+  reference: string
+}
+
+const { text, reference } = Astro.props;
+---
+<div class="text-center bg-glow-darker px-12 py-12">
+  <p class="text-xl text-fire font-medium pb-4">{text}</p>
+  <p class="text-lg text-charcoal">{reference}</p>
+</div>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import LandingVideo from '../components/LandingVideo.astro'
+import CenterHero from '../components/CenterHero.astro'
+import SplitHero from '../components/SplitHero.astro'
+import Verse from '../components/Verse.astro'
+import Button from '../components/Button.astro'
+
+const quote = {
+  text: `"Come, follow me," Jesus said, "and I will send you out to fish for people." At once they left their nets and followed Him.`,
+  reference: 'Matthew 4:19-20 (NIV)',
+}
+---
+
+<BaseLayout>
+  <LandingVideo />
+  <CenterHero heading="Service Livestream" button={{ text: 'YouTube', link: 'https://wsda.link/youtube', newtab: true }}
+    >You're welcome to join Wollongong church each Sabbath morning for our combined Adult Sabbath School class and main Divine Service
+    program.</CenterHero
+  >
+  <SplitHero heading="About Us" image="https://cms.illawarraadventist.org/assets/a4a6bea7-4877-4378-9ef5-97fa2940ed92">
+    <p class="max-w-xl text-xl line-height-normal pb-4">We represent the Seventh-day Adventist community in the Illawarra region, welcoming everyone to join us through music, prayer, and Bible
+    teaching.</p>
+    <p class="max-w-xl text-xl line-height-normal text-charcoal pb-4">Each location hosts smaller Sabbath School groups for various age groups, in addition to a main church service each Sabbath
+    morning. We also several ministries and activities working throughout the week, including several that involve members across all
+    churches.</p>
+    <div class="flex flex-row gap-4">
+      <Button link='/ministries'>Ministries</Button>
+      <Button link='/locations'>Churches</Button>
+    </div>
+  </SplitHero>
+  <Verse text={quote.text} reference={quote.reference} />
+</BaseLayout>

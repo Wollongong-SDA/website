@@ -5,12 +5,12 @@ interface Props {
 }
 ---
 
-<div class="grid grid-cols-2 gap-8 my-16 ml-12 mr-4">
-  <div class="flex flex-col justify-center items-end text-right">
+<div class="grid lg:grid-cols-2 gap-12 mt-16 mx-4">
+  <div class="flex flex-col justify-center items-center lg:items-end lg:text-right text-charcoal text-lg">
     <p class="heading-3 mb-4 text-center">{Astro.props.heading}</p>
     <slot />
   </div>
-  <div>
+  <div class="flex justify-center lg:justify-initial">
     <img src={Astro.props.image} alt="" class="h-700px w-620px object-cover" />
   </div>
 </div>

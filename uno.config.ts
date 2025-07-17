@@ -24,10 +24,10 @@ export default defineConfig({
     }
   },
   shortcuts: {
-    'heading-1': 'text-64px font-bold text-fire',
-    'heading-2': 'text-56px font-bold text-fire',
-    'heading-3': 'text-48px font-semibold text-fire',
-    'heading-4': 'text-36px font-semibold text-charcoal',
-    'heading-5': 'text-28px font-medium text-charcoal',
+    'heading-1': 'text-6xl font-bold text-fire',
+    'heading-2': 'text-5xl font-bold text-fire',
+    'heading-3': 'text-4xl font-semibold text-fire',
+    'heading-4': 'text-3xl font-semibold text-charcoal',
+    'heading-5': 'text-2xl font-medium text-charcoal',
   }
 })

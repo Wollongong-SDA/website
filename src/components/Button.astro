@@ -13,13 +13,16 @@ const external = Astro.props.link?.startsWith('http') || Astro.props.external
   class:list={[
     'bg-charcoal',
     'font-medium',
-    'text-xl',
+    'text-lg',
     'text-white',
-    'px-8',
-    'py-4',
+    'px-6',
+    'py-3',
     'inline-block',
     'transition',
     'hover:bg-charcoal-faded',
+    'border-1',
+    'border-charcoal-faded',
+    'w-fit',
     Astro.props.class,
   ]}
   href={Astro.props.link}

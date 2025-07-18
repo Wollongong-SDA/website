@@ -4,6 +4,7 @@ import Verse from '../components/Verse.astro'
 import LeftImageHero from '../components/LeftImageHero.astro'
 import LargeCard from '../components/LargeCard.astro'
 import { ASSET_URL } from '../constants'
+import Button from '../components/Button.astro'
 
 const quote = {
   text: `Just as our bodies have many parts and each part has a special function, so it is with Christ’s body. We are many parts of one body, and we all belong to each other.`,
@@ -25,16 +26,28 @@ const buttons = [
 
 <BaseLayout>
   <LeftImageHero heading="Our Churches" buttons={buttons}
-    >Catering for over 250 members, we have 4 local churches across the Illawarra which work together and with other churches and
-    organisations under the Greater Sydney Conference.</LeftImageHero
+    >Catering for over 250 members, we have 4 local churches across the Illawarra which work together and with other churches and organisations under the Greater Sydney Conference.</LeftImageHero
   >
-  <div>
+  <div class="flex flex-col gap-8">
     <LargeCard backgroundUrl={ASSET_URL('fb40c7fa-5e96-4745-82a6-b4f110804f2a.webp')} outerClass="" innerClass="text-white bg-charcoal bg-opacity-90">
-      <p class="text-5xl font-semibold pb-2">Wollongong</>
-      <p class="text-lg font-medium max-w-2xl">
-        Our largest church, multicultural and multigenerational, and passionate about reaching the great City of Wollongong with a message
-        of hope.
-      </p>
+      <p class="text-5xl font-semibold py-2">Wollongong</p>
+      <p class="text-lg font-medium max-w-2xl">Our largest church, multicultural and multigenerational, and passionate about reaching the great City of Wollongong with a message of hope.</p>
+      <Button link="/locations/wollongong">Find out more</Button>
+    </LargeCard>
+    <LargeCard backgroundUrl={ASSET_URL('b083e2f1-fd9b-4586-bf65-fcf52a8b9362.webp')} outerClass="" innerClass="text-white bg-charcoal bg-opacity-90">
+      <p class="text-5xl font-semibold pb-2">Corrimal</p>
+      <p class="text-lg font-medium max-w-2xl">A welcoming church family serving the Corrimal area, passionate about community and sharing hope together.</p>
+      <Button link="/locations/corrimal">Find out more</Button>
+    </LargeCard>
+    <LargeCard backgroundUrl={ASSET_URL('fb40c7fa-5e96-4745-82a6-b4f110804f2a.webp')} outerClass="" innerClass="text-white bg-charcoal bg-opacity-90">
+      <p class="text-5xl font-semibold pb-2">Southern Illawarra (Dapto)</p>
+      <p class="text-lg font-medium max-w-2xl">A small, friendly community serving the Southern Illawarra and Dapto area, focused on community and spiritual growth.</p>
+      <Button link="/locations/southernillawarra">Find out more</Button>
+    </LargeCard>
+    <LargeCard backgroundUrl={ASSET_URL('fb40c7fa-5e96-4745-82a6-b4f110804f2a.webp')} outerClass="" innerClass="text-white bg-charcoal bg-opacity-90">
+      <p class="text-5xl font-semibold pb-2">Albion Park Church Plant</p>
+      <p class="text-lg font-medium max-w-2xl">Our newest and smallest church plant, serving the Albion Park area with a focus on building community and sharing hope.</p>
+      <Button link="/locations/albionpark">Find out more</Button>
     </LargeCard>
   </div>
   <Verse text={quote.text} reference={quote.reference} />

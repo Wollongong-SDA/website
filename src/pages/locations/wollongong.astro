@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Verse from '../../components/Verse.astro'
+import RightImageHero from '../../components/RightImageHero.astro'
+import TextBlock from '../../components/TextBlock.astro'
+import Button from '../../components/Button.astro'
+
+const quote = {
+  text: `Accept one another, then, just as Christ accepted you, in order to bring praise to God.`,
+  reference: 'Romans 15:7 (NIV)',
+}
+---
+
+<BaseLayout>
+  <RightImageHero headingImage="482619be-c939-48b9-a575-2e48d28085bb.svg">
+    Our largest church, multicultural and multigenerational, and passionate about reaching the great City of Wollongong
+    with a message of hope.
+  </RightImageHero>
+  <TextBlock>
+    <h1 class="heading-3">About Us</h1>
+    <p>
+      We are a vibrant community of faith located in the heart of Wollongong. Our ministries serve many groups, from our
+      thriving youth groups, Pathfinders & Adventurers, and community food van ministry.
+    </p>
+    <p>
+      Sabbath School starts at 9:30am, with several classes catering for all ages. Our combined Divine Service starts at
+      11:00am. Our Adult Sabbath School class and Divine Service is live streamed onto YouTube every Sabbath morning.
+    </p>
+  </TextBlock>
+  <TextBlock>
+    <h1 class="heading-3">Getting Here</h1>
+    <p>
+      30 Victoria Street,<br />
+      Wollongong, NSW 2500<br />
+      <a href="https://maps.app.goo.gl/fgRDT7UyQj4JcXnv5" target="_blank" rel="noopener noreferrer"
+        class="link">View on Google Maps</a>
+    </p>
+    <iframe
+    class="border-0 h-xl w-full"
+      loading="lazy"
+      src={'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJAZTV2qYZE2sRSBtLfNK28_A&key=' +
+        import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY + ''}></iframe>
+  </TextBlock>
+  <TextBlock>
+    <h1 class="heading-3">Contact Us</h1>
+    <p><b>Multimedia: </b><a href="mailto:multimedia@illawarraadventist.org">multimedia@illawarraadventist.org</a></p>
+    <p><b>Communications: </b><a href="mailto:multimedia@illawarraadventist.org">wollongong@illawarraadventist.org</a></p>
+    <Button link="/contact">More Details</Button>
+  </TextBlock>
+  <Verse text={quote.text} reference={quote.reference} />
+</BaseLayout>

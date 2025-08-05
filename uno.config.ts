@@ -29,5 +29,6 @@ export default defineConfig({
     'heading-3': 'text-4xl font-semibold text-fire',
     'heading-4': 'text-3xl font-semibold text-charcoal',
     'heading-5': 'text-2xl font-medium text-charcoal',
+    'link': 'underline text-fire hover:text-charcoal transition-colors cursor-pointer',
   }
 })

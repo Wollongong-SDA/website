@@ -1,0 +1,12 @@
+---
+interface Props {
+  path: string;
+  text: string;
+}
+
+const currentPath = new URL(Astro.request.url).pathname.slice(1);
+const isExternal = Astro.props.path.startsWith("http");
+const href = isExternal ? Astro.props.path : `/${Astro.props.path}`;
+---
+
+<a href={href} class={currentPath == Astro.props.path ? "text-fire" : ""}>{Astro.props.text}</a>

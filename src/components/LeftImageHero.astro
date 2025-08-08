@@ -8,12 +8,13 @@ interface Props {
     text: string
     link: string
     newtab?: boolean
-  }>
+  }>,
+  asset: string
 }
 ---
 
 <div class="flex flex-col items-start mx-auto my-8 lg:my-16 lg:px-24 lg:h-156">
-  <img src={ASSET_URL('b083e2f1-fd9b-4586-bf65-fcf52a8b9362.jpg')} class="self-center lg:self-end z-0 h-30vh w-95vw lg:h-full aspect-auto lg:w-70vw object-cover" />
+  <img src={ASSET_URL(Astro.props.asset)} class="self-center lg:self-end z-0 h-30vh w-95vw lg:h-full aspect-auto lg:w-70vw object-cover" />
   <div class="bg-glow px-4 lg:px-20 mx-auto py-12 lg:py-24 lg:ml-16 mt-4 lg:my-20 lg:absolute w-full lg:max-w-2xl lg:text-left text-center">
     <p class="heading-2 mb-4">{Astro.props.heading}</p>
     <p class="text-charcoal text-lg font-400 mx-auto lg:mx-initial max-w-2xl"><slot /></p>

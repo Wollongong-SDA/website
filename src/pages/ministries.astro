@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Verse from '../components/Verse.astro'
-import LeftHero from '../components/LeftHero.astro'
+import LeftImageHero from '../components/LeftImageHero.astro'
 
 const quote = {
   text: `Just as our bodies have many parts and each part has a special function, so it is with Christ’s body. We are many parts of one body, and we all belong to each other.`,
@@ -10,6 +10,6 @@ const quote = {
 ---
 
 <BaseLayout>
-  <LeftHero heading="Our Ministries" >Each church runs a variety of programs engaging individuals, families, and our wider community. This page highlights a few ministries that work across all our churches, however feel free to enquire with your local church on all the programs available.</LeftHero>
+  <LeftImageHero asset="b083e2f1-fd9b-4586-bf65-fcf52a8b9362.jpg" heading="Our Ministries" >Each church runs a variety of programs engaging individuals, families, and our wider community. This page highlights a few ministries that work across all our churches, however feel free to enquire with your local church on all the programs available.</LeftIHero>
   <Verse text={quote.text} reference={quote.reference} />
 </BaseLayout>

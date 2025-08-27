@@ -11,7 +11,6 @@ import { readItems } from "@directus/sdk";
 
 export async function getStaticPaths() {
   const pages = await directus.request(readItems("locations"));
-  console.log(JSON.stringify(pages, null, 2));
   return pages.map((page) => ({
     params: { slug: page.slug },
     props: { page },

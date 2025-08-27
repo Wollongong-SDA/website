@@ -54,6 +54,9 @@ importers:
       '@unocss/preset-icons':
         specifier: ^0.63.4
         version: 0.63.4
+      '@unocss/preset-wind4':
+        specifier: ^66.4.2
+        version: 66.4.2
       '@unocss/reset':
         specifier: ^0.63.3
         version: 0.63.3

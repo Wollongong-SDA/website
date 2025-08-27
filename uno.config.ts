@@ -1,5 +1,5 @@
 import presetIcons from '@unocss/preset-icons'
-import { defineConfig, presetUno } from 'unocss'
+import { defineConfig, presetWind4 } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -8,10 +8,10 @@ export default defineConfig({
         mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default),
       },
     }),
-    presetUno(),
+    presetWind4()
   ],
   theme: {
-    fontFamily: {
+    font: {
       'sans': '"Noto Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
     },
     colors: {

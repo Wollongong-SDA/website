@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Verse from '../../components/Verse.astro'
+import RightImageHero from '../../components/RightImageHero.astro'
+import TextBlock from '../../components/TextBlock.astro'
+import Button from '../../components/Button.astro'
+import { Markdown } from 'astro-remote';
+import { shortcutsExtension } from '../../lib/markdown';
+import directus from '../../lib/directus'
+import { readItems } from "@directus/sdk";
+
+export async function getStaticPaths() {
+  const pages = await directus.request(readItems("locations"));
+  console.log(JSON.stringify(pages, null, 2));
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+const quote = {
+  text: `Accept one another, then, just as Christ accepted you, in order to bring praise to God.`,
+  reference: 'Romans 15:7 (NIV)',
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout>
+  <RightImageHero headingImage={page.logo + ".svg"}>
+    {page.overview}
+  </RightImageHero>
+  <TextBlock>
+    <Markdown
+      content={page.content as string} 
+      sanitize={{ allowComponents: true }} 
+      components={{ Button }}
+      marked={{ extensions: [shortcutsExtension] }}
+    />
+  </TextBlock>
+  <Verse text={quote.text} reference={quote.reference} />
+</BaseLayout>

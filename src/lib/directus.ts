@@ -1,21 +1,34 @@
-import { createDirectus, rest, } from '@directus/sdk';
+import { createDirectus, rest } from '@directus/sdk'
 
 type Location = {
-  id: number;
-  status: string;
-  sort: number;
-  content: string;
-  background: string;
-  logo: string;
-  name: string;
-  slug: string;
-  overview: string;
+  id: number
+  status: string
+  sort: number
+  content: string
+  background: string
+  logo: string
+  name: string
+  slug: string
+  overview: string
+}
+
+type Ministry = {
+  id: string
+  status: string
+  sort: number
+  content: string
+  background: string
+  preview: string
+  name: string
+  slug: string
+  overview: string
 }
 
 type Schema = {
-  locations: Location[];
+  locations: Location[],
+  ministries: Ministry[],
 }
 
-const directus = createDirectus<Schema>(import.meta.env["CMS_BASE"]).with(rest());
+const directus = createDirectus<Schema>(import.meta.env['CMS_BASE']).with(rest())
 
-export default directus;
+export default directus

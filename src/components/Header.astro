@@ -3,7 +3,7 @@ const path = new URL(Astro.request.url).pathname.slice(1);
 ---
 
 <header>
-  <div class="bg-glow h-60px flex items-center justify-center gap-20px text-18px font-medium text-charcoal hover:*:text-charcoal-faded *:transition">
+  <div class="bg-glow h-8vh flex items-center justify-center gap-20px text-18px font-medium text-charcoal hover:*:text-charcoal-faded *:transition">
     <a href="/" class={path == "" ? "text-fire" : ""}>Home</a>
     <a href="/ministries" class={path == "ministries" ? "text-fire" : ""}>Ministries</a>
     <a href="/locations" class={path == "locations" ? "text-fire" : ""}>Locations</a>

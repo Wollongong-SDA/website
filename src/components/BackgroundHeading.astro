@@ -1,0 +1,59 @@
+---
+import Button from './Button.astro'
+import { ASSET_URL } from '../constants'
+
+interface Props {
+  heading: string
+  buttons?: Array<{
+    text: string
+    link: string
+    newtab?: boolean
+  }>
+  asset: string
+}
+---
+
+<script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  document.querySelectorAll('[data-parallax-bg]').forEach((element) => {
+    gsap.fromTo(
+      element,
+      { backgroundPositionY: '-100%' },
+      {
+        backgroundPositionY: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      }
+    )
+  })
+</script>
+
+<div class="w-full overflow-hidden">
+  <div
+    data-parallax-bg
+    class="bg-glow mx-auto py-48 w-full text-center bg-cover bg-no-repeat"
+    style={{ 
+      backgroundImage: 'linear-gradient(rgba(61, 57, 53, 0.7), rgba(61, 57, 53, 0.55)), ' + 'url(' + ASSET_URL(Astro.props.asset) + ')', 
+    }}>
+    <p class="heading-2 text-glow mb-6">{Astro.props.heading}</p>
+    <p class="text-glow-darker text-xl font-400 mx-auto max-w-2xl"><slot /></p>
+    <div class="pt-6 gap-2 flex flex-col items-center lg:items-start">
+      {
+        Astro.props.buttons?.map((button) => (
+          <Button link={button.link} newtab={button.newtab}>
+            {button.text}
+          </Button>
+        ))
+      }
+    </div>
+  </div>
+</div>

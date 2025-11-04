@@ -25,7 +25,7 @@ const page = Astro.props.page.data;
 ---
 
 <BaseLayout>
-  <RightImageHero headingImage={page.logo + ".svg"}>
+  <RightImageHero headingImage={page.logo + ".svg"} image={page.background}>
     {page.overview}
   </RightImageHero>
   <TextBlock>

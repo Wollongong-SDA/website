@@ -44,7 +44,7 @@ interface Props {
     style={{ 
       backgroundImage: 'linear-gradient(rgba(61, 57, 53, 0.7), rgba(61, 57, 53, 0.55)), ' + 'url(' + ASSET_URL(Astro.props.asset) + ')', 
     }}>
-    <p class="heading-2 text-glow mb-6">{Astro.props.heading}</p>
+    <p class="heading-2 font-semibold text-glow mb-6">{Astro.props.heading}</p>
     <p class="text-glow-darker text-xl font-400 mx-auto max-w-2xl"><slot /></p>
     <div class="pt-6 gap-2 flex flex-col items-center lg:items-start">
       {

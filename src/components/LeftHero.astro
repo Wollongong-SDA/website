@@ -13,9 +13,9 @@ interface Props {
 }
 ---
 
-<div class="flex flex-col items-center mx-auto my-16 gap-4 px-4">
-  <p class="heading-2 mb-4 text-center">{Astro.props.heading}</p>
-  <p class="text-center text-charcoal text-lg font-400 max-w-2xl"><slot /></p>
+<div class="flex flex-col items-start mx-auto my-16 gap-4 px-8 lg:mx-20vw">
+  <p class="heading-3 mb-2">{Astro.props.heading}</p>
+  <p class="text-charcoal text-lg font-400 max-w-2xl"><slot /></p>
   {
     Astro.props.buttons?.map((button) => (
       <Button class="mt-4" link={button.link} newtab={button.newtab}>

@@ -1,0 +1,25 @@
+---
+import Button from './Button.astro'
+
+interface Props {
+  heading: string
+  button?: {
+    text: string
+    link: string
+    newtab?: boolean
+  }
+  headingClass?: string
+}
+---
+
+<div class="flex flex-col mx-auto my-28 gap-6 px-8 lg:mx-20vw">
+  <p class:list={['heading-1', Astro.props.headingClass]}>{Astro.props.heading}</p>
+  <p class="text-charcoal text-lg max-w-2xl"><slot /></p>
+  {
+    Astro.props.button && (
+      <Button link={Astro.props.button.link} newtab={Astro.props.button.newtab}>
+        {Astro.props.button.text}
+      </Button>
+    )
+  }
+</div>

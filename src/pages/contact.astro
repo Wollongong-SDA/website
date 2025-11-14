@@ -3,6 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Verse from '../components/Verse.astro'
 import CenterHeading from '../components/CenterHeading.astro'
 import LeftHero from '../components/LeftHero.astro'
+import { getCollection } from 'astro:content'
+import { Markdown } from 'astro-remote'
+import { shortcutsExtension } from '../lib/markdown'
+
+const contacts = await getCollection('contacts')
 
 const quote = {
   text: `“So I say to you: Ask and it will be given to you; seek and you will find; knock and the door will be opened to you.”`,
@@ -14,8 +19,14 @@ const quote = {
   <CenterHeading heading="Contact Us" headingClass="text-5xl" button={{ text: 'Locations', link: '/locations' }}>
     Find your local church's details such as service times and location below.
   </CenterHeading>
-  <LeftHero heading="Name">
-    Something
-  </LeftHero>
+  {
+    contacts
+      .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
+      .map((contact) => (
+        <LeftHero heading={contact.data.name}>
+          <Markdown content={contact.data.details as string} sanitize={{ allowComponents: true }} marked={{ extensions: [shortcutsExtension({ paddedHeading: 'bottom', paddedParagraph: true })] }} />
+        </LeftHero>
+      ))
+  }
   <Verse text={quote.text} reference={quote.reference} />
 </BaseLayout>

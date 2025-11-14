@@ -33,7 +33,7 @@ const page = Astro.props.page.data;
       content={page.content as string} 
       sanitize={{ allowComponents: true }} 
       components={{ Button }}
-      marked={{ extensions: [shortcutsExtension] }}
+      marked={{ extensions: [shortcutsExtension()] }}
     />
   </TextBlock>
   <Verse text={quote.text} reference={quote.reference} />

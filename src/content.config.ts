@@ -48,4 +48,23 @@ const ministries = defineCollection({
   }),
 })
 
-export const collections = { locations, ministries }
+const contacts = defineCollection({
+  loader: async () => {
+    const collection = await directus.request(readItems('contacts'))
+    return collection.map((item) => {
+      return {
+        ...item,
+        id: String(item.id),
+      }
+    })
+  },
+  schema: z.object({
+    id: z.string(),
+    status: z.string(),
+    sort: z.optional(z.number()),
+    name: z.string(),
+    details: z.string(),
+  }),
+})
+
+export const collections = { locations, ministries, contacts }

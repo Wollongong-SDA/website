@@ -32,10 +32,18 @@ type Contact = {
   details: string
 }
 
+type Page = {
+  id: string
+  status: string
+  title: string
+  details: string
+}
+
 type Schema = {
   locations: Location[],
   ministries: Ministry[],
   contacts: Contact[],
+  pages: Page[],
 }
 
 const directus = createDirectus<Schema>(import.meta.env['CMS_BASE']).with(rest())

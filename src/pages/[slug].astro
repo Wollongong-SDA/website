@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Verse from '../components/Verse.astro'
+import RightImageHero from '../components/RightImageHero.astro'
+import TextBlock from '../components/TextBlock.astro'
+import Button from '../components/Button.astro'
+import { Markdown } from 'astro-remote'
+import { shortcutsExtension } from '../lib/markdown'
+import { getCollection } from 'astro:content'
+import CenterHeading from '../components/CenterHeading.astro'
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages')
+  return pages.map((page) => ({
+    params: { slug: page.data.slug },
+    props: { page },
+  }))
+}
+
+const quote = {
+  text: `For I can do everything through Christ, who gives me strength.`,
+  reference: 'Philippians 4:13 (NLT)',
+}
+
+const page = Astro.props.page.data
+---
+
+<BaseLayout>
+  <TextBlock>
+    <h1 class="heading-1 text-5xl pb-4">{page.title}</h1>
+    <Markdown
+      content={page.details as string}
+      sanitize={{ allowComponents: true }}
+      components={{ Button }}
+      marked={{ extensions: [shortcutsExtension()] }}
+    />
+  </TextBlock>
+  <Verse text={quote.text} reference={quote.reference} />
+</BaseLayout>

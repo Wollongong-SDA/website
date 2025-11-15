@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Verse from '../components/Verse.astro'
-import CenterHeading from '../components/CenterHeading.astro'
-import LeftHero from '../components/LeftHero.astro'
 import { getCollection } from 'astro:content'
 import { Markdown } from 'astro-remote'
 import { shortcutsExtension } from '../lib/markdown'
+import TextBlock from '../components/TextBlock.astro'
+import Button from '../components/Button.astro'
 
 const contacts = await getCollection('contacts')
 
@@ -16,16 +16,26 @@ const quote = {
 ---
 
 <BaseLayout>
-  <CenterHeading heading="Contact Us" headingClass="text-5xl" button={{ text: 'Locations', link: '/locations' }}>
-    Find your local church's details such as service times and location below.
-  </CenterHeading>
+  <TextBlock>
+    <h1 class="heading-1 text-5xl py-4">Contact Us</h1>
+    <p class="pb-4">
+      We'd love for you to reach out to us. Find out your local church's details such as service times and location
+      below.
+    </p>
+    <Button link="/locations"> Locations </Button>
+  </TextBlock>
   {
     contacts
       .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
       .map((contact) => (
-        <LeftHero heading={contact.data.name}>
-          <Markdown content={contact.data.details as string} sanitize={{ allowComponents: true }} marked={{ extensions: [shortcutsExtension({ paddedHeading: 'bottom', paddedParagraph: true })] }} />
-        </LeftHero>
+        <div class="flex flex-col items-start max-w-4xl mx-auto my-8 lg:my-16 px-8 lg:px-24 text-lg">
+          <h3 class="heading-3 mb-4">{contact.data.name}</h3>
+          <Markdown
+            content={contact.data.details as string}
+            sanitize={{ allowComponents: true }}
+            marked={{ extensions: [shortcutsExtension({ paddedHeading: 'bottom', paddedParagraph: true })] }}
+          />
+        </div>
       ))
   }
   <Verse text={quote.text} reference={quote.reference} />

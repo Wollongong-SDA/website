@@ -17,7 +17,7 @@ const quote = {
 
 <BaseLayout>
   <LeftImageHero asset="b083e2f1-fd9b-4586-bf65-fcf52a8b9362.jpg" heading="Our Ministries" >Each church runs a variety of programs engaging individuals, families, and our wider community. This page highlights a few ministries that work across all our churches, however feel free to enquire with your local church on all the programs available.</LeftIHero>
-  <div class="flex flex-col gap-8">
+  <div class="flex flex-col gap-8 px-4">
     {
       ministries
         .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
@@ -26,7 +26,7 @@ const quote = {
             backgroundUrl={ASSET_URL(ministry.data.preview ?? ministry.data.background)}
             outerClass=""
             innerClass="text-white bg-charcoal bg-opacity-90">
-            <p class="text-5xl font-semibold py-2">{ministry.data.name}</p>
+            <p class="text-4xl lg:text-5xl font-semibold py-2">{ministry.data.name}</p>
             <p class="text-lg font-medium max-w-2xl">{ministry.data.overview}</p>
             <Button link={'/ministries/' + ministry.data.slug}>Find out more</Button>
           </LargeCard>

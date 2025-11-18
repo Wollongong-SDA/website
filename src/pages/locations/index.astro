@@ -32,7 +32,7 @@ const buttons = [
     >Catering for over 250 members, we have 4 local churches across the Illawarra which work together and with other
     churches and organisations under the Greater Sydney Conference.</LeftImageHero
   >
-  <div class="flex flex-col gap-8">
+  <div class="flex flex-col gap-8 px-4">
     {
       locations
         .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
@@ -40,7 +40,7 @@ const buttons = [
           <LargeCard
             backgroundUrl={ASSET_URL(location.data.background)}
             innerClass="text-white bg-charcoal bg-opacity-90">
-            <p class="text-5xl font-semibold py-2">{location.data.name}</p>
+            <p class="text-4xl lg:text-5xl font-semibold py-2">{location.data.name}</p>
             <p class="text-lg font-medium max-w-2xl">{location.data.overview}</p>
             <Button link={'/locations/' + location.data.slug}>Find out more</Button>
           </LargeCard>

@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Verse from '../components/Verse.astro'
-import RightImageHero from '../components/RightImageHero.astro'
 import TextBlock from '../components/TextBlock.astro'
 import Button from '../components/Button.astro'
 import { Markdown } from 'astro-remote'
 import { shortcutsExtension } from '../lib/markdown'
 import { getCollection } from 'astro:content'
-import CenterHeading from '../components/CenterHeading.astro'
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages')

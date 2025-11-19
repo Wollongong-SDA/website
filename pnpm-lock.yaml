@@ -20,12 +20,6 @@ importers:
       '@directus/sdk':
         specifier: ^20.0.2
         version: 20.0.2
-      '@fontsource-variable/noto-sans':
-        specifier: ^5.1.0
-        version: 5.1.0
-      '@fontsource/noto-sans':
-        specifier: ^5.1.0
-        version: 5.1.0
       '@types/marked':
         specifier: ^5.0.0
         version: 5.0.0
@@ -762,12 +756,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource-variable/noto-sans@5.1.0':
-    resolution: {integrity: sha512-mLn33cgmryVFjpHoHy/lx6/DsRvp8kbxDmfMbMNl75eY+bVubad3u6oGSCyc8izcSNZAhAlXdoFW7mCnI2l63w==}
-
-  '@fontsource/noto-sans@5.1.0':
-    resolution: {integrity: sha512-P6X+ynPOteCsbUHI7rU4UIpRJcuraJ3OllKqPIjKgxPZS0yPtxFyquADb4SmcgZosRrgqDy34/dcSIhio3Qx4Q==}
 
   '@iconify-json/mdi@1.2.1':
     resolution: {integrity: sha512-dSkQU78gsZV6Yxnq78+LuX7jzeFC/5NAmz7O3rh558GimGFcwMVY/OtqRowIzjqJBmMmWZft7wkFV4TrwRXjlg==}
@@ -4137,10 +4125,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.9':
     optional: true
-
-  '@fontsource-variable/noto-sans@5.1.0': {}
-
-  '@fontsource/noto-sans@5.1.0': {}
 
   '@iconify-json/mdi@1.2.1':
     dependencies:

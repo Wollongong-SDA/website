@@ -86,5 +86,24 @@ const pages = defineCollection({
   }),
 })
 
+const global_socialbuttons = defineCollection({
+  loader: async () => {
+    const collection = await directus.request(readItems('global_socialbuttons'))
+    return collection.map((item) => {
+      return {
+        ...item,
+        id: String(item.id),
+      }
+    })
+  },
+  schema: z.object({
+    id: z.string().uuid(),
+    status: z.string(),
+    sort: z.optional(z.number()),
+    name: z.string(),
+    class: z.string(),
+    link: z.string(),
+  }),
+})
 
-export const collections = { locations, ministries, contacts, pages }
+export const collections = { locations, ministries, contacts, pages, global_socialbuttons }

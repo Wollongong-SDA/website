@@ -39,11 +39,21 @@ type Page = {
   details: string
 }
 
+type Global_SocialButtons = {
+  id: string
+  status: string
+  sort: number
+  name: string
+  class: string
+  link: string
+}
+
 type Schema = {
   locations: Location[],
   ministries: Ministry[],
   contacts: Contact[],
   pages: Page[],
+  global_socialbuttons: Global_SocialButtons[],
 }
 
 const directus = createDirectus<Schema>(import.meta.env['CMS_BASE']).with(rest())

@@ -2,15 +2,13 @@
 import { ASSET_URL } from '../constants'
 import Button from '../components/Button.astro'
 import { getCollection } from 'astro:content'
-import { Image } from 'astro:assets'
-import landingImage from '/images/landing.svg'
 
 const locations = await getCollection('locations')
 ---
 
 <div class="bg-charcoal h-75vh text-white flex justify-center items-center text-center relative overflow-hidden">
   <div class="relative z-30 my-auto">
-    <Image src={landingImage} alt="Landing" class="h-40 max-w-screen mx-auto px-4 animate-float"/>
+    <img src="/images/landing.svg" alt="Landing" class="h-40 max-w-screen mx-auto px-4 animate-float" />
     <div class="flex flex-row justify-center gap-5 mt-14 flex-wrap">
       {
         locations

@@ -1,5 +1,4 @@
-import presetIcons from '@unocss/preset-icons'
-import { defineConfig, presetWind4 } from 'unocss'
+import { defineConfig, presetWind4, presetIcons } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -7,7 +6,7 @@ export default defineConfig({
       collections: {
         mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default),
       },
-    }) as any,
+    }),
     presetWind4()
   ],
   theme: {

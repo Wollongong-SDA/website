@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "4.3.4",
-    "@astrojs/vue": "5.1.0",
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/mdx": "4.3.11",
+    "@astrojs/vue": "5.1.3",
     "@directus/sdk": "^20.0.2",
     "@types/marked": "^5.0.0",
-    "astro": "^5.13.3",
+    "astro": "^5.15.9",
     "astro-remote": "^0.3.4",
     "gsap": "^3.13.0",
     "marked": "^12.0.2",

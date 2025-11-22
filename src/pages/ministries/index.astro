@@ -5,7 +5,7 @@ import LeftImageHero from '../../components/LeftImageHero.astro'
 import LargeCard from '../../components/LargeCard.astro'
 import { getCollection } from 'astro:content'
 import Button from '../../components/Button.astro'
-import { ASSET_URL } from '../../constants'
+import { IMAGE_URL } from '../../constants'
 
 const ministries = await getCollection('ministries')
 
@@ -23,7 +23,7 @@ const quote = {
         .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
         .map((ministry) => (
           <LargeCard
-            backgroundUrl={ASSET_URL(ministry.data.preview ?? ministry.data.background)}
+            backgroundUrl={IMAGE_URL(ministry.data.preview ?? ministry.data.background)}
             outerClass=""
             innerClass="text-white bg-charcoal bg-opacity-90">
             <p class="text-4xl lg:text-5xl font-semibold py-2">{ministry.data.name}</p>

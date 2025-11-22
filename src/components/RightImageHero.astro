@@ -1,6 +1,6 @@
 ---
 import Button from './Button.astro'
-import { ASSET_URL } from '../constants'
+import { IMAGE_URL } from '../constants'
 
 interface Props {
   heading?: string,
@@ -15,11 +15,11 @@ interface Props {
 ---
 
 <div class="flex flex-col items-start mx-auto my-8 lg:my-16 lg:px-24">
-  <img src={ASSET_URL(Astro.props.image)} class="self-center lg:self-start z-0 h-40vh w-95vw aspect-auto lg:w-70vw object-cover" />
+  <img src={IMAGE_URL(Astro.props.image)} class="self-center lg:self-start z-0 h-40vh w-95vw aspect-auto lg:w-70vw object-cover" />
   <div class="bg-glow px-4 lg:px-20 mx-auto lg:mx-initial py-12 lg:justify-self-end lg:self-end mt-4 lg:relative lg:mt--15% w-full lg:max-w-3xl lg:text-left text-center">
     {
       Astro.props.headingImage && (
-        <img src={ASSET_URL(Astro.props.headingImage)} alt="Heading Image" class="h-20 mx-auto lg:ml-initial mb-4" />
+        <img src={IMAGE_URL(Astro.props.headingImage)} alt="Heading Image" class="h-20 mx-auto lg:ml-initial mb-4" />
       )
     }
     {

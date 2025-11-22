@@ -1,6 +1,6 @@
 ---
 import Button from './Button.astro'
-import { ASSET_URL } from '../constants'
+import { IMAGE_URL } from '../constants'
 
 interface Props {
   heading: string
@@ -42,7 +42,7 @@ interface Props {
     data-parallax-bg
     class="bg-glow mx-auto py-48 w-full text-center bg-cover bg-no-repeat bg-center px-1"
     style={{ 
-      backgroundImage: 'linear-gradient(rgba(61, 57, 53, 0.7), rgba(61, 57, 53, 0.55)), ' + 'url(' + ASSET_URL(Astro.props.asset) + ')', 
+      backgroundImage: 'linear-gradient(rgba(61, 57, 53, 0.7), rgba(61, 57, 53, 0.55)), ' + 'url(' + IMAGE_URL(Astro.props.asset) + ')', 
     }}>
     <p class="heading-2 font-semibold text-glow mb-6">{Astro.props.heading}</p>
     <p class="text-glow-darker text-xl font-400 mx-auto max-w-2xl"><slot /></p>

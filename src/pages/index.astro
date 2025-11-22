@@ -5,7 +5,7 @@ import CenterHero from '../components/CenterHero.astro'
 import SplitHero from '../components/SplitHero.astro'
 import Verse from '../components/Verse.astro'
 import Button from '../components/Button.astro'
-import { ASSET_URL } from '../constants'
+import { IMAGE_URL } from '../constants'
 
 const quote = {
   text: `"Come, follow me," Jesus said, "and I will send you out to fish for people." At once they left their nets and followed Him.`,
@@ -19,7 +19,7 @@ const quote = {
     >You're welcome to join Wollongong church each Sabbath morning for our combined Adult Sabbath School class and main Divine Service
     program.</CenterHero
   >
-  <SplitHero heading="About Us" image={ASSET_URL('a4a6bea7-4877-4378-9ef5-97fa2940ed92')}>
+  <SplitHero heading="About Us" image={IMAGE_URL('a4a6bea7-4877-4378-9ef5-97fa2940ed92')}>
     <p class="max-w-2xl lg:max-w-xl pb-4">We represent the Seventh-day Adventist community in the Illawarra region, welcoming everyone to join us through music, prayer, and Bible
     teaching.</p>
     <p class="max-w-2xl lg:max-w-xl pb-4">Each location hosts smaller Sabbath School groups for various age groups, in addition to a main church service each Sabbath

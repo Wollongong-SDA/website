@@ -27,7 +27,7 @@ const title = Astro.props.fullTitle // this looks ugly
     <title>{title}</title>
     {
       Astro.props.jsonld &&
-        Astro.props.jsonld.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)
+        Astro.props.jsonld.map((ld) => <script is:inline type="application/ld+json" set:html={JSON.stringify(ld)} />)
     }
   </head>
   <body>

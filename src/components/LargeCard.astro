@@ -20,7 +20,8 @@ const imageDetails = await getImageDetails(Astro.props.background)
     alt=""
     class="absolute inset-0 h-full object-cover object-center"
     layout="full-width"
-    formats={['avif', 'webp', 'jpg']}
+    formats={['avif', 'webp']}
+    fallbackFormat='jpg'
   />
   <div
     class:list={[

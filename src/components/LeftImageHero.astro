@@ -26,7 +26,8 @@ const imageDetails = await getImageDetails(Astro.props.asset)
       class="h-full aspect-auto object-cover"
       alt=""
       layout="full-width"
-      formats={['avif', 'webp', 'jpg']}
+      formats={['avif', 'webp']}
+      fallbackFormat='jpg'
     />
   </div>
   <div

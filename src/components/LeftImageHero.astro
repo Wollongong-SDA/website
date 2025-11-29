@@ -1,6 +1,8 @@
 ---
 import Button from './Button.astro'
 import { IMAGE_URL } from '../constants'
+import getImageDetails from '../lib/imageHelper'
+import { Picture } from 'astro:assets'
 
 interface Props {
   heading: string
@@ -8,20 +10,33 @@ interface Props {
     text: string
     link: string
     newtab?: boolean
-  }>,
+  }>
   asset: string
 }
+
+const imageDetails = await getImageDetails(Astro.props.asset)
 ---
 
 <div class="flex flex-col items-start mx-auto my-8 lg:my-16 lg:h-156 container">
-  <img src={IMAGE_URL(Astro.props.asset)} class="self-center lg:self-end z-0 h-30vh w-95vw lg:h-full aspect-auto lg:w-70vw object-cover" />
-  <div class="bg-glow px-4 lg:px-20 mx-auto py-12 lg:py-24 lg:ml-16 mt-4 lg:my-20 lg:absolute w-full lg:max-w-2xl lg:text-left text-center">
+  <div class="w-95vw lg:w-70vw h-30vh lg:h-full self-center lg:self-end z-0 max-w-full">
+    <Picture
+      width={imageDetails.width}
+      height={imageDetails.height}
+      src={IMAGE_URL(Astro.props.asset)}
+      class="h-full aspect-auto object-cover"
+      alt=""
+      layout="full-width"
+      formats={['avif', 'webp', 'jpg']}
+    />
+  </div>
+  <div
+    class="bg-glow px-4 lg:px-20 mx-auto py-12 lg:py-24 lg:ml-16 mt-4 lg:my-20 lg:absolute w-full lg:max-w-2xl lg:text-left text-center">
     <p class="heading-2 mb-4">{Astro.props.heading}</p>
     <p class="text-charcoal text-lg font-400 mx-auto lg:mx-initial max-w-2xl"><slot /></p>
     <div class="pt-6 gap-2 flex flex-col items-center lg:items-start">
       {
         Astro.props.buttons?.map((button) => (
-          <Button link={button.link} newtab={button.newtab} >
+          <Button link={button.link} newtab={button.newtab}>
             {button.text}
           </Button>
         ))

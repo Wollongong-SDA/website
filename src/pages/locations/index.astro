@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Verse from '../../components/Verse.astro'
 import LeftImageHero from '../../components/LeftImageHero.astro'
 import LargeCard from '../../components/LargeCard.astro'
-import { IMAGE_URL } from '../../constants'
 import Button from '../../components/Button.astro'
 import { getCollection } from 'astro:content'
 
@@ -28,7 +27,7 @@ const buttons = [
 ---
 
 <BaseLayout>
-  <LeftImageHero heading="Our Churches" buttons={buttons} asset="b083e2f1-fd9b-4586-bf65-fcf52a8b9362.jpg"
+  <LeftImageHero heading="Our Churches" buttons={buttons} asset="b083e2f1-fd9b-4586-bf65-fcf52a8b9362"
     >Catering for over 250 members, we have 4 local churches across the Illawarra which work together and with other
     churches and organisations under the Greater Sydney Conference.</LeftImageHero
   >
@@ -38,7 +37,7 @@ const buttons = [
         .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
         .map((location) => (
           <LargeCard
-            backgroundUrl={IMAGE_URL(location.data.background)}
+            background={location.data.background}
             innerClass="text-white bg-charcoal bg-opacity-90">
             <p class="text-4xl lg:text-5xl font-semibold py-2">{location.data.name}</p>
             <p class="text-lg font-medium max-w-2xl">{location.data.overview}</p>

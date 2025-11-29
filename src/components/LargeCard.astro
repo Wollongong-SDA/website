@@ -1,11 +1,39 @@
 ---
+import { Picture } from 'astro:assets'
+import { ASSET_URL } from '../constants'
+import getImageDetails from '../lib/imageHelper'
+
 interface Props {
-  backgroundUrl: string
+  background: string
   innerClass?: string
   outerClass?: string
 }
+
+const imageDetails = await getImageDetails(Astro.props.background)
 ---
 
-<div class:list={['aspect-auto', 'bg-cover', 'bg-center', 'bg-fixed', 'mx-auto', 'container', Astro.props.outerClass]} style={{backgroundImage: `url(${Astro.props.backgroundUrl})`}}>
-  <div class:list={['flex', 'flex-col', 'items-start', 'justify-center', 'px-6', 'py-24', 'gap-2', Astro.props.innerClass]}><slot /></div>
+<div class:list={['relative', 'mx-auto', 'container', 'overflow-hidden', Astro.props.outerClass]}>
+  <Picture
+    width={imageDetails.width}
+    height={imageDetails.height}
+    src={ASSET_URL(Astro.props.background)}
+    alt=""
+    class="absolute inset-0 h-full object-cover object-center"
+    layout="full-width"
+    formats={['avif', 'webp', 'jpg']}
+  />
+  <div
+    class:list={[
+      'relative',
+      'flex',
+      'flex-col',
+      'items-start',
+      'justify-center',
+      'px-6',
+      'py-24',
+      'gap-2',
+      Astro.props.innerClass,
+    ]}>
+    <slot />
+  </div>
 </div>

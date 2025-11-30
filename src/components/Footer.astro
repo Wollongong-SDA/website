@@ -14,7 +14,7 @@ const socialButtons = await getCollection('global_socialbuttons');
         socialButtons
           .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
           .map((button) => (
-          <a href={button.data.link} class={button.data.class}><i class={button.data.class}></i></a>
+          <a href={button.data.link} class={button.data.class} aria-label={button.data.name}><i class={button.data.class}></i></a>
         ))
       }
     </div>

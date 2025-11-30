@@ -28,6 +28,8 @@ const imageDetails = await getImageDetails(Astro.props.asset)
       layout="full-width"
       formats={['avif', 'webp']}
       fallbackFormat='jpg'
+      fetchpriority="high"
+      loading="eager"
     />
   </div>
   <div

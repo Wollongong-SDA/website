@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CenterHero from '../components/CenterHero.astro'
+import Verse from '../components/Verse.astro'
+
+const quote = {
+  text: `For the Son of Man came to seek and to save the lost.`,
+  reference: 'Luke 19:10 (NLT)',
+}
+---
+
+<BaseLayout>
+  <CenterHero heading="Page Not Found" button={{text: 'Home', link: '/'}} class="py-8">Sorry, the page you're looking for doesn't exist. Please check the URL or return to the homepage.</CenterHero>
+  <Verse text={quote.text} reference={quote.reference} />
+</BaseLayout>

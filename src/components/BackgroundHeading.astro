@@ -61,8 +61,8 @@ const imageDetails = await getImageDetails(Astro.props.asset)
       width={imageDetails.width}
       height={imageDetails.height}
       alt={Astro.props.heading}
-      loading="eager"
       class="absolute inset-0 min-h-full w-full object-cover"
+      priority
     />
     <div
       class="absolute inset-0 z-1"

@@ -3,6 +3,7 @@ import Button from './Button.astro'
 import { ASSET_URL, IMAGE_URL } from '../constants'
 import getImageDetails from '../lib/imageHelper'
 import { Picture } from 'astro:assets'
+import { Image } from 'astro:assets'
 
 interface Props {
   heading?: string
@@ -34,7 +35,7 @@ const imageDetails = await getImageDetails(Astro.props.image)
     class="bg-glow px-4 lg:px-20 mx-auto lg:mx-initial py-12 lg:justify-self-end lg:self-end mt-4 lg:relative lg:mt--15% w-full lg:max-w-3xl lg:text-left text-center">
     {
       Astro.props.headingImage && (
-        <img src={ASSET_URL(Astro.props.headingImage)} alt="Heading Image" class="h-20 mx-auto lg:ml-initial mb-4" />
+        <Image src={ASSET_URL(Astro.props.headingImage)} alt="Heading Image" class="h-20 mx-auto lg:ml-initial mb-4" inferSize />
       )
     }
     {Astro.props.heading && <p class="heading-2 mb-4">{Astro.props.heading}</p>}

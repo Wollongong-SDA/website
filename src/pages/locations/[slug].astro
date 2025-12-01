@@ -32,7 +32,7 @@ const ld = {
 }
 ---
 
-<BaseLayout title={page.name} jsonld={[ld]}>
+<BaseLayout title={page.name} jsonld={[ld]} description={page.overview}>
   <RightImageHero headingImage={page.logo + '.svg'} image={page.background}>
     {page.overview}
   </RightImageHero>

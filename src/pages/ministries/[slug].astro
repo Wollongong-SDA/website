@@ -24,7 +24,7 @@ const quote = {
 const page = Astro.props.page.data;
 ---
 
-<BaseLayout>
+<BaseLayout title={page.name} description={page.overview}>
   <BackgroundHeading heading={page.name} asset={page.background}>
     {page.overview}
   </BackgroundHeading>

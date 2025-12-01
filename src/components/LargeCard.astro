@@ -19,7 +19,7 @@ const imageDetails = await getImageDetails(Astro.props.background)
     src={ASSET_URL(Astro.props.background)}
     alt=""
     class="absolute inset-0 h-full object-cover object-center"
-    layout="full-width"
+    layout="constrained"
     formats={['avif', 'webp']}
     fallbackFormat='jpg'
   />

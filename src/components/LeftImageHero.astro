@@ -25,7 +25,7 @@ const imageDetails = await getImageDetails(Astro.props.asset)
       src={IMAGE_URL(Astro.props.asset)}
       class="h-full aspect-auto object-cover"
       alt=""
-      layout="full-width"
+      layout="constrained"
       formats={['avif', 'webp']}
       fallbackFormat='jpg'
       priority

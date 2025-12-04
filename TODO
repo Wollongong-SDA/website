@@ -1,1 +1,2 @@
 - astro check + oxlint on ci
+- imagehelper for width/height at content collection level

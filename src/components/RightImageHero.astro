@@ -37,7 +37,7 @@ const imageDetails = await getImageDetails(Astro.props.image)
     class="bg-glow px-4 mx-auto py-12 lg:p-16 lg:ml-16 mt-4 lg:my-30 lg:absolute w-full lg:max-w-2xl lg:text-left text-center self-end">
     {
       Astro.props.headingImage && (
-        <Image src={ASSET_URL(Astro.props.headingImage)} alt="Heading Image" class="h-20 mx-auto lg:ml-initial mb-4 object-contain lg:object-left" inferSize />
+        <Image src={ASSET_URL(Astro.props.headingImage)} alt="Heading Image" class="h-16 lg:h-20 mx-auto lg:ml-initial mb-4 object-contain lg:object-left" inferSize />
       )
     }
     {Astro.props.heading && <p class="heading-2 mb-4">{Astro.props.heading}</p>}

@@ -1,19 +1,188 @@
 ---
-const path = new URL(Astro.request.url).pathname.slice(1);
+type NavLink = {
+  href: string
+  label: string
+  match?: string
+  external?: boolean
+}
+
+const path = new URL(Astro.request.url).pathname.slice(1)
+
+const navLinks: NavLink[] = [
+  { href: '/', label: 'Home', match: '' },
+  { href: '/ministries', label: 'Ministries', match: 'ministries' },
+  { href: '/locations', label: 'Locations', match: 'locations' },
+  { href: 'https://wsda.link/egiving', label: 'eGiving', external: true },
+  { href: '/contact', label: 'Contact', match: 'contact' },
+]
+
+const isActiveRoute = (currentPath: string, link: NavLink) => {
+  if (link.match === undefined) return false
+  if (link.match === '') return currentPath === ''
+  return currentPath === link.match || currentPath.startsWith(`${link.match}/`)
+}
 ---
 
-<header>
-  <div class="bg-glow h-8vh flex items-center justify-center gap-20px text-18px font-medium text-charcoal hover:*:text-charcoal-faded *:transition">
-    <a href="/" class={path == "" ? "text-fire" : ""}>Home</a>
-    <a href="/ministries" class={path == "ministries" ? "text-fire" : ""}>Ministries</a>
-    <a href="/locations" class={path == "locations" ? "text-fire" : ""}>Locations</a>
-    <a href="https://wsda.link/egiving">eGiving</a>
-    <a href="/contact" class={path == "contact" ? "text-fire" : ""}>Contact</a>
+<header data-site-header data-nav-open="false" class="text-charcoal md:bg-glow md:shadow-[0_1px_0_#ebe7e1]">
+  <div class="relative mx-auto flex h-0 w-full max-w-6xl items-center px-16px sm:px-32px md:h-16 md:justify-center">
+    <button
+      type="button"
+      data-nav-toggle
+      aria-controls="primary-nav"
+      aria-expanded="false"
+      class="fixed right-20px top-20px z-60 inline-flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/15 bg-white text-charcoal shadow-[0_10px_35px_rgba(61,57,53,0.25)] transition hover:border-charcoal/30 hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fire md:hidden">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+
+    <nav
+      id="primary-nav"
+      class="primary-nav hidden fixed left-4 right-4 top-24 z-50 flex-col gap-16px rounded-20px border border-charcoal/10 bg-white/95 px-20px py-18px text-18px font-medium shadow-xl md:static md:mx-auto md:flex md:h-full md:flex-row md:items-center md:justify-center md:gap-20px md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+      {
+        navLinks.map((link) => {
+          const isActive = isActiveRoute(path, link)
+          const baseClasses = 'transition hover:text-charcoal-faded'
+          const activeClasses = isActive ? 'text-fire active' : 'text-charcoal'
+          return (
+            <a
+              href={link.href}
+              class={`${baseClasses} ${activeClasses}`}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noreferrer' : undefined}>
+              {link.label}
+            </a>
+          )
+        })
+      }
+    </nav>
   </div>
 </header>
 
+<script>
+  const MOBILE_QUERY = '(max-width: 767px)'
+  const DESKTOP_QUERY = '(min-width: 768px)'
+  const HEADER_SELECTOR = 'header[data-site-header]'
+
+  const setupHeaderNav = (header: HTMLElement) => {
+    if (!header || header.dataset.navReady === 'true') return
+
+    const toggle = header.querySelector<HTMLButtonElement>('[data-nav-toggle]')
+    const nav = header.querySelector<HTMLElement>('#primary-nav')
+    if (!toggle || !nav) return
+
+    const mobileQuery = window.matchMedia(MOBILE_QUERY)
+    const desktopQuery = window.matchMedia(DESKTOP_QUERY)
+
+    const setState = (isOpen: boolean) => {
+      nav.classList.toggle('is-open', isOpen)
+      header.setAttribute('data-nav-open', String(isOpen))
+      toggle.setAttribute('aria-expanded', String(isOpen))
+    }
+
+    const closeForMobile = () => {
+      if (mobileQuery.matches) setState(false)
+    }
+
+    toggle.addEventListener('click', () => {
+      const nextIsOpen = !nav.classList.contains('is-open')
+      setState(nextIsOpen)
+    })
+
+    nav.querySelectorAll<HTMLAnchorElement>('a').forEach((anchor) => {
+      anchor.addEventListener('click', closeForMobile)
+    })
+
+    const handleDesktopChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setState(false)
+    }
+
+    desktopQuery.addEventListener('change', handleDesktopChange)
+
+    header.dataset.navReady = 'true'
+  }
+
+  const initHeaderNav = () => {
+    document.querySelectorAll<HTMLElement>(HEADER_SELECTOR).forEach(setupHeaderNav)
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderNav, { once: true })
+  } else {
+    initHeaderNav()
+  }
+
+  document.addEventListener('astro:page-load', initHeaderNav)
+</script>
+
 <style>
-  img {
+  header[data-site-header] :global(.primary-nav.is-open) {
+    display: flex;
+  }
+
+  header[data-site-header] :global(.primary-nav a) {
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  header[data-site-header] :global(.primary-nav a::after) {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.2s ease;
+  }
+
+  header[data-site-header] :global(.primary-nav a.active::after) {
+    width: 100%;
+  }
+
+  header[data-site-header] :global(.hamburger) {
+    position: relative;
+    width: 1.5rem;
+    height: 0.125rem;
+    background: currentColor;
+    border-radius: 999px;
     display: block;
+  }
+
+  header[data-site-header] :global(.hamburger::before),
+  header[data-site-header] :global(.hamburger::after) {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 1.5rem;
+    height: 0.125rem;
+    background: currentColor;
+    border-radius: 999px;
+    transition: transform 0.2s ease;
+  }
+
+  header[data-site-header] :global(.hamburger::before) {
+    top: -0.4rem;
+  }
+
+  header[data-site-header] :global(.hamburger::after) {
+    top: 0.4rem;
+  }
+
+  header[data-site-header][data-nav-open='true'] :global(.hamburger) {
+    background: transparent;
+  }
+
+  header[data-site-header][data-nav-open='true'] :global(.hamburger::before) {
+    transform: translateY(0.4rem) rotate(45deg);
+  }
+
+  header[data-site-header][data-nav-open='true'] :global(.hamburger::after) {
+    transform: translateY(-0.4rem) rotate(-45deg);
+  }
+
+  @media (min-width: 768px) {
+    header[data-site-header] :global(.primary-nav) {
+      display: flex !important;
+    }
   }
 </style>

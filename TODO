@@ -1,5 +1,6 @@
-- astro check + oxlint on ci
+- astro check + oxlint on ci + https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/#set-up-a-workflow
 - imagehelper for width/height at content collection level
 - fix social buttons
 - video
 - parallax on large cards
+- navbar from singleton

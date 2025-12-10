@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check --minimumFailingSeverity hint && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check --minimumFailingSeverity hint"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",

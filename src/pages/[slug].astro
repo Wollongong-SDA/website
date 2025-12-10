@@ -23,7 +23,7 @@ const quote = {
 const page = Astro.props.page.data
 ---
 
-<BaseLayout>
+<BaseLayout title={page.title}>
   <TextBlock>
     <h1 class="heading-1 text-5xl py-4">{page.title}</h1>
     <Markdown

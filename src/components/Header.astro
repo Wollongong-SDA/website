@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets'
+import IllawarraLogo from '../assets/logos/illawarra.svg'
+
 type NavLink = {
   href: string
   label: string
@@ -24,7 +27,7 @@ const isActiveRoute = (currentPath: string, link: NavLink) => {
 ---
 
 <header data-site-header data-nav-open="false" class="text-charcoal md:bg-glow md:shadow-[0_1px_0_#ebe7e1]">
-  <div class="relative mx-auto flex h-0 w-full max-w-6xl items-center px-16px sm:px-32px md:h-16 md:justify-center">
+  <div class="relative mx-auto flex h-0 w-full max-w-6xl items-center px-16px justify-center sm:px-32px md:h-16 lg:justify-between">
     <button
       type="button"
       data-nav-toggle
@@ -34,10 +37,11 @@ const isActiveRoute = (currentPath: string, link: NavLink) => {
       <span class="sr-only">Toggle navigation</span>
       <span class="hamburger" aria-hidden="true"></span>
     </button>
+    <Image src={IllawarraLogo} alt="Illawarra Logo" class="my-6 hidden lg:block h-12 w-min" />
 
     <nav
       id="primary-nav"
-      class="primary-nav hidden fixed left-4 right-4 top-24 z-50 flex-col gap-16px rounded-20px border border-charcoal/10 bg-white/95 px-20px py-18px text-18px font-medium shadow-xl md:static md:mx-auto md:flex md:h-full md:flex-row md:items-center md:justify-center md:gap-20px md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+      class="primary-nav hidden fixed left-4 right-4 top-24 z-50 flex-col gap-16px rounded-20px border border-charcoal/10 bg-white/95 px-20px py-18px text-18px font-medium shadow-xl md:static md:flex md:h-full md:flex-row md:items-center md:justify-center md:gap-20px md:border-0 md:bg-transparent md:p-0 md:shadow-none">
       {
         navLinks.map((link) => {
           const isActive = isActiveRoute(path, link)

@@ -8,7 +8,7 @@ const socialButtons = await getCollection('global_socialbuttons')
 
 <div class="font-light lg:bg-glow text-charcoal text-center text-md py-6 lg:pb-32 lg:pt-16">
   <div class="lg:w-60vw mx-auto flex flex-col gap-3">
-    <Image src={IllawarraLogo} alt="Illawarra Logo" height="60" class="mx-auto my-6" />
+    <Image src={IllawarraLogo} alt="Illawarra Logo" height="60" class="mx-auto my-6 hidden lg:block" />
     <div class="flex justify-center gap-4 text-xl">
       {
         socialButtons
@@ -20,7 +20,7 @@ const socialButtons = await getCollection('global_socialbuttons')
     </div>
     <p class="font-medium">© {new Date().getFullYear()} Wollongong Seventh-day Adventist Church</p>
     <div class="flex flex-col lg:flex-row justify-center gap-2 lg:gap-6">
-      <a href="https://sydney.adventist.org.au/privacy-policy/">Privacy Policy</a>
+      <a href="https://sydney.adventist.org.au/privacy-policy/">AUC Privacy Policy</a>
     </div>
   </div>
 </div>

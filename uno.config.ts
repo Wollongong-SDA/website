@@ -1,5 +1,20 @@
 import { defineConfig, presetWind4, presetIcons } from 'unocss'
 
+const shortcuts = {
+  // Styles
+  'heading-1': 'text-6xl font-bold text-fire',
+  'heading-2': 'text-5xl font-bold text-fire',
+  'heading-3': 'text-4xl font-semibold text-fire',
+  'heading-4': 'text-3xl font-semibold text-charcoal',
+  'heading-5': 'text-2xl font-medium text-charcoal',
+  'link': 'underline text-fire hover:text-charcoal transition-colors cursor-pointer',
+  // Icons
+  'icons-facebook': 'i-mdi-facebook',
+  'icons-instagram': 'i-mdi-instagram',
+  'icons-youtube': 'i-mdi-youtube',
+  'icons-hand-heart': 'i-mdi-hand-heart',
+}
+
 export default defineConfig({
   presets: [
     presetIcons({
@@ -22,12 +37,6 @@ export default defineConfig({
       'charcoal-active': '',
     }
   },
-  shortcuts: {
-    'heading-1': 'text-6xl font-bold text-fire',
-    'heading-2': 'text-5xl font-bold text-fire',
-    'heading-3': 'text-4xl font-semibold text-fire',
-    'heading-4': 'text-3xl font-semibold text-charcoal',
-    'heading-5': 'text-2xl font-medium text-charcoal',
-    'link': 'underline text-fire hover:text-charcoal transition-colors cursor-pointer',
-  }
+  shortcuts,
+  safelist: Object.keys(shortcuts),
 })

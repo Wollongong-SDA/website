@@ -1,9 +1,9 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets'
 import IllawarraLogo from '../assets/logos/illawarra.svg'
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
-const socialButtons = await getCollection('global_socialbuttons');
+const socialButtons = await getCollection('global_socialbuttons')
 ---
 
 <div class="font-light lg:bg-glow text-charcoal text-center text-md py-6 lg:pb-32 lg:pt-16">
@@ -14,13 +14,13 @@ const socialButtons = await getCollection('global_socialbuttons');
         socialButtons
           .sort((a, b) => (a.data.sort ?? 1) - (b.data.sort ?? 1))
           .map((button) => (
-          <a href={button.data.link} class={button.data.class} aria-label={button.data.name}><i class={button.data.class}></i></a>
-        ))
+            <a href={button.data.link} class={'icons-' + button.data.class} aria-label={button.data.name} />
+          ))
       }
     </div>
     <p class="font-medium">© {new Date().getFullYear()} Wollongong Seventh-day Adventist Church</p>
     <div class="flex flex-col lg:flex-row justify-center gap-2 lg:gap-6">
-      <a href="/">AUC Privacy Policy</a>
+      <a href="https://sydney.adventist.org.au/privacy-policy/">Privacy Policy</a>
     </div>
   </div>
 </div>

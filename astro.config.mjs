@@ -15,5 +15,6 @@ export default defineConfig({
   ],
   image: {
     domains: ['10.2.100.6:8055', 'cms.illawarraadventist.org']
-  }
+  },
+  prefetch: true
 });

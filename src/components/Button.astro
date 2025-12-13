@@ -29,5 +29,7 @@ const external = Astro.props.link?.startsWith('http') || Astro.props.external
   target={Astro.props.newtab ? '_blank' : undefined}
   rel={Astro.props.newtab ? 'noopener noreferrer' : undefined}>
   <slot />
-  {external && <div class="i-mdi-link-variant inline-block ml-2" />}
+  {external && (
+    <i class="i-mdi-external-link ml-2 align-middle inline-block relative -top-0.5" />
+  )}
 </a>

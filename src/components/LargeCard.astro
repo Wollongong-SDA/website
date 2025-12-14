@@ -13,28 +13,31 @@ const imageDetails = await getImageDetails(Astro.props.background)
 ---
 
 <div class:list={['relative', 'mx-auto', 'container', 'overflow-hidden', Astro.props.outerClass]}>
-  <Picture
-    width={imageDetails.width}
-    height={imageDetails.height}
-    src={ASSET_URL(Astro.props.background)}
-    alt=""
-    class="absolute inset-0 h-full object-cover object-center"
-    layout="constrained"
-    formats={['avif', 'webp']}
-    fallbackFormat='jpg'
-  />
-  <div
-    class:list={[
-      'relative',
-      'flex',
-      'flex-col',
-      'items-start',
-      'justify-center',
-      'px-6',
-      'py-24',
-      'gap-2',
-      Astro.props.innerClass,
-    ]}>
-    <slot />
+  <div style={{ clipPath: 'inset(0)' }}>
+    <Picture
+      width={imageDetails.width}
+      height={imageDetails.height}
+      src={ASSET_URL(Astro.props.background)}
+      alt=""
+      class="fixed inset-0 h-full object-cover object-center -z-10 pointer-events-none"
+      layout="fixed"
+      formats={['avif', 'webp']}
+      fallbackFormat="jpg"
+    />
+    <div
+      class:list={[
+        Astro.props.innerClass,
+        'w-full',
+        'h-full',
+        'px-6',
+        'py-24',
+        'flex',
+        'flex-col',
+        'items-start',
+        'justify-center',
+        'gap-2',
+      ]}>
+      <slot />
+    </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content'
 const socialButtons = await getCollection('global_socialbuttons')
 ---
 
-<div class="font-light lg:bg-glow text-charcoal text-center text-md py-6 lg:pb-32 lg:pt-16">
+<footer class="font-light lg:bg-glow text-charcoal text-center text-md py-6 lg:pb-32 lg:pt-16">
   <div class="lg:w-60vw mx-auto flex flex-col gap-3">
     <Image src={IllawarraLogo} alt="Illawarra Logo" height="60" class="mx-auto my-6" />
     <div class="flex justify-center gap-4 text-xl">
@@ -23,4 +23,4 @@ const socialButtons = await getCollection('global_socialbuttons')
       <a href="https://sydney.adventist.org.au/privacy-policy/">AUC Privacy Policy</a>
     </div>
   </div>
-</div>
+</footer>

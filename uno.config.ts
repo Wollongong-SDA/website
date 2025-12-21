@@ -1,4 +1,4 @@
-import { defineConfig, presetWind4, presetIcons } from 'unocss'
+import { defineConfig, presetWind4, presetIcons, presetWebFonts } from 'unocss'
 
 const shortcuts = {
   // Styles
@@ -22,7 +22,13 @@ export default defineConfig({
         mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default),
       },
     }),
-    presetWind4()
+    presetWind4(),
+    presetWebFonts({
+      fonts: {
+        sans: 'Noto Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i',
+      },
+      provider: 'bunny',
+    }),
   ],
   theme: {
     font: {

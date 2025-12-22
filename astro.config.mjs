@@ -1,8 +1,9 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
-import vue from '@astrojs/vue';
+import vue from '@astrojs/vue'
 import UnoCSS from 'unocss/astro'
+import playformCompress from '@playform/compress'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,11 +12,14 @@ export default defineConfig({
   integrations: [
     vue(),
     UnoCSS({
-      injectReset: true
-    })
+      injectReset: true,
+    }),
+    playformCompress({
+      Image: false,
+    }),
   ],
   image: {
-    domains: ['10.2.100.6:8055', 'cms.illawarraadventist.org']
+    domains: ['10.2.100.6:8055', 'cms.illawarraadventist.org'],
   },
-  prefetch: true
-});
+  prefetch: true,
+})

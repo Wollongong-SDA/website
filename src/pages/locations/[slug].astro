@@ -7,6 +7,7 @@ import Button from '../../components/Button.astro'
 import { Markdown } from 'astro-remote'
 import { shortcutsExtension } from '../../lib/markdown'
 import { getCollection } from 'astro:content'
+import { ASSET_URL } from '../../constants'
 
 export async function getStaticPaths() {
   const pages = await getCollection('locations')
@@ -27,7 +28,7 @@ const ld = {
   '@context': 'https://schema.org',
   '@type': 'Church',
   name: page.name + ' Seventh-day Adventist Church',
-  photo: [page.background],
+  photo: [ASSET_URL(page.background)],
   url: Astro.request.url,
 }
 ---

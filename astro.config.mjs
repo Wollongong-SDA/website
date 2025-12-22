@@ -6,7 +6,7 @@ import playformCompress from '@playform/compress'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://illawarraadventist.org',
+  site: 'https://www.illawarraadventist.org',
   output: 'static',
   integrations: [
     UnoCSS({

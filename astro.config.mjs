@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
 
-import vue from '@astrojs/vue'
 import UnoCSS from 'unocss/astro'
 import playformCompress from '@playform/compress'
 
@@ -10,7 +9,6 @@ export default defineConfig({
   site: 'https://illawarraadventist.org',
   output: 'static',
   integrations: [
-    vue(),
     UnoCSS({
       injectReset: true,
     }),
